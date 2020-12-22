@@ -1,5 +1,4 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,9 +8,9 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>language-sr</artifactId>
-    <url>https://www.languagetool.org</url>
-    <name>Serbian module for LanguageTool</name>
+    <artifactId>language-crh</artifactId>
+    <url>http://www.languagetool.org</url>
+    <name>Crimean Tatar module for LanguageTool</name>
 
     <licenses>
         <license>
@@ -26,10 +25,8 @@
 
     <developers>
         <developer>
-            <name>Zoltán Csala</name>
-            <roles>
-                <role>Maintainer</role>
-            </roles>
+            <name>Andriy Rysin</name>
+            <roles><role>Maintainer</role></roles>
         </developer>
     </developers>
 
@@ -38,9 +35,8 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <excludes>
-                    <exclude>org/languagetool/resource/sr/*.awk</exclude>
-                    <exclude>org/languagetool/resource/sr/*.py</exclude>
-                    <exclude>org/languagetool/resource/sr/*.sh</exclude>
+                    <exclude>org/languagetool/resource/crh/pos_dict.txt</exclude>
+                    <exclude>org/languagetool/resource/crh/dev</exclude>
                 </excludes>
             </resource>
         </resources>
@@ -59,6 +55,27 @@
             <groupId>org.languagetool</groupId>
             <artifactId>languagetool-core</artifactId>
             <version>${languagetool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.opennlp</groupId>
+            <artifactId>opennlp-tools</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.washington.cs.knowitall</groupId>
+            <artifactId>opennlp-tokenize-models</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.washington.cs.knowitall</groupId>
+            <artifactId>opennlp-postag-models</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.washington.cs.knowitall</groupId>
+            <artifactId>opennlp-chunk-models</artifactId>
+            <version>1.5</version>
         </dependency>
 
         <dependency>
