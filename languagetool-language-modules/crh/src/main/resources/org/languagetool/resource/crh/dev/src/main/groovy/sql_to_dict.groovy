@@ -5,6 +5,9 @@ out.text = ''
 
 // brute-force reading sql dump
 
+def spaced = new File("spaced.txt")
+spaced.text = ""
+
 new File("language_tool_crh_wordbase.sql").eachLine { String line ->
     if( ! line.startsWith("INSERT INTO") )
         return
@@ -19,11 +22,13 @@ new File("language_tool_crh_wordbase.sql").eachLine { String line ->
 
     String posTag = parts[5]
     String form  = parts[2]
-    form = form.replaceFirst(/^eñ /, '')
 
     // TODO: I don't know what to do with spaced forms
-    if( form.contains(" ") )
+    if( form.contains(" ") || parts[0].contains(" ") ) {
+        spaced << form + '\t' + parts[0] + '\t' + posTag << "\n"
         return
+    }
+//    form = form.replaceFirst(/^eñ /, '')
 
     out << form + '\t' + parts[0] + '\t' + posTag << "\n"
 }
