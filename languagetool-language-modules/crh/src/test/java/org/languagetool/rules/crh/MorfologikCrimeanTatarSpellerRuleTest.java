@@ -47,6 +47,8 @@ public class MorfologikCrimeanTatarSpellerRuleTest {
     assertEquals(1, rule.match(langTool.getAnalyzedSentence("aaabadlarnı")).length);
 
     assertEquals(0, rule.match(langTool.getAnalyzedSentence("abadanlaşırlarnıñ")).length);
+
+    assertEquals(0, rule.match(langTool.getAnalyzedSentence("meraba")).length);
   }
 
 }

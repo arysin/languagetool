@@ -114,6 +114,6 @@ task spellDict(type: JavaExec, dependsOn: prepareSpellWords) {
 
 
 
-processResources.dependsOn(posDict)
+processResources.dependsOn(posDict, spellDict)
 compileJava.enabled = false
 
